@@ -1,3 +1,7 @@
+# Tennis Game Analytics
+An interactive sports analytics dashboard built using Python, SQLite, Streamlit, Pandas, and Plotly.
+
+
 ## Main Folder Structure
 ```sportsGameAnalysis/
 ├── src/
@@ -10,7 +14,7 @@
 └── requirements.txt
 ```
 
-## Competition Module (author: Akanksha Yadav)
+## Competition Module 
 
 This module extracts competition data from the SportRadar Tennis API.
 
@@ -20,7 +24,9 @@ https://api.sportradar.com/tennis/trial/v3/en/competitions.json
 ### Steps to Run
 1. Add API key to `.env`
 2. Run:
+   ```
    python insert_data.py
+   ```
 
 ### Output
 - SQLite database: competition.db
@@ -42,9 +48,24 @@ https://api.sportradar.com/tennis/trial/v3/en/competitions.json
 └── requirements.txt
 ```
 
-## Complexes & Venues Module (author: Shrawani)
+## Complexes & Venues Module 
+This module handles tennis infrastructure data including complexes and venues.
 
-## Competitor Rankings & Analytics Module (author: Nirmaldas Patel)
+- API Endpoint
+https://api.sportradar.com/tennis/trial/v3/en/complexes.json
+
+## Steps to Run
+Add API key to .env
+
+## Run:
+```
+python src/scripts/create_complex_tables.py
+python src/scripts/fetch_complexes.py
+python src/scripts/insert_complexes_venues.py
+```
+
+
+## Competitor Rankings & Analytics Module 
 This module extracts ranking data from the SportRadar Tennis API and analysis it with SQL queries.
 
 ### API Endpoint
@@ -53,9 +74,24 @@ https://api.sportradar.com/tennis/trial/v3/en/double_competitors_rankings.json
 ### Steps to Run
 1. Add API key to `.env`
 2. Run:
+   ```
    python fetch_competitions.py
    python parse_competitions.py
    python insert_data.py
+   
+## Output
+1. SQLite database: competition.db
+2. Tables: complexes, venues
+
+### Folder Structure
+```complexes_venues_module/
+src/
+├── scripts/
+│   ├── create_complex_tables.py
+│   ├── fetch_complexes.py
+│   ├── insert_complexes_venues.py
+│   └── complexes.json
+```
 
 ### Output
 - SQLite database: rankings.db
@@ -78,7 +114,7 @@ https://api.sportradar.com/tennis/trial/v3/en/double_competitors_rankings.json
 ```
 
 
-## Streamlit Application & Dashboard Module (author: Manasvi Shetty)
+## Streamlit Application & Dashboard Module 
 
 This module integrates all datasets from the SQLite database and displays them through an interactive Streamlit dashboard.
 
@@ -116,9 +152,9 @@ This module integrates all datasets from the SQLite database and displays them t
 ```
 
 ## How to Run
-
-- streamlit run src/app/app.py
+```
+streamlit run src/app/app.py
+```
 
 ## Output
-
 An interactive web dashboard for analyzing professional tennis data.
