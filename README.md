@@ -10,7 +10,7 @@
 └── requirements.txt
 ```
 
-## Competition Module (author: Akanksha Yadav)
+## Competition Module 
 
 This module extracts competition data from the SportRadar Tennis API.
 
@@ -42,9 +42,9 @@ https://api.sportradar.com/tennis/trial/v3/en/competitions.json
 └── requirements.txt
 ```
 
-## Complexes & Venues Module (author: Shrawani)
+## Complexes & Venues Module 
 
-## Competitor Rankings & Analytics Module (author: Nirmaldas Patel)
+## Competitor Rankings & Analytics Module 
 This module extracts ranking data from the SportRadar Tennis API and analysis it with SQL queries.
 
 ### API Endpoint
@@ -78,7 +78,7 @@ https://api.sportradar.com/tennis/trial/v3/en/double_competitors_rankings.json
 ```
 
 
-## Streamlit Application & Dashboard Module (author: Manasvi Shetty)
+## Streamlit Application & Dashboard Module 
 
 This module integrates all datasets from the SQLite database and displays them through an interactive Streamlit dashboard.
 
