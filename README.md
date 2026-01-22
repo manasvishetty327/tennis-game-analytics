@@ -24,7 +24,9 @@ https://api.sportradar.com/tennis/trial/v3/en/competitions.json
 ### Steps to Run
 1. Add API key to `.env`
 2. Run:
+   ```
    python insert_data.py
+   ```
 
 ### Output
 - SQLite database: competition.db
@@ -56,11 +58,11 @@ https://api.sportradar.com/tennis/trial/v3/en/complexes.json
 Add API key to .env
 
 ## Run:
-
+```
 python src/scripts/create_complex_tables.py
 python src/scripts/fetch_complexes.py
 python src/scripts/insert_complexes_venues.py
-
+```
 
 
 ## Competitor Rankings & Analytics Module 
@@ -72,13 +74,14 @@ https://api.sportradar.com/tennis/trial/v3/en/double_competitors_rankings.json
 ### Steps to Run
 1. Add API key to `.env`
 2. Run:
+   ```
    python fetch_competitions.py
    python parse_competitions.py
    python insert_data.py
-
+   
 ## Output
-SQLite database: competition.db
-Tables: complexes, venues
+1. SQLite database: competition.db
+2. Tables: complexes, venues
 
 ### Folder Structure
 ```complexes_venues_module/
@@ -149,9 +152,9 @@ This module integrates all datasets from the SQLite database and displays them t
 ```
 
 ## How to Run
-
-- streamlit run src/app/app.py
+```
+streamlit run src/app/app.py
+```
 
 ## Output
-
 An interactive web dashboard for analyzing professional tennis data.
