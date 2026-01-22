@@ -78,8 +78,8 @@ set_background("src/app/assets/bg.jpg")
 # ================= DATABASE (CORRECT ONE) =================
 # app.py -> src/app/app.py
 # DB -> src/scripts/competition.db
-BASE_DIR = Path(__file__).resolve().parents[1] / "scripts"
-MAIN_DB = BASE_DIR / "competition.db"
+BASE_DIR = Path(__file__).resolve().parents[1]
+MAIN_DB = BASE_DIR / "scripts" / "competition.db"
 
 @st.cache_resource
 def get_connection():
