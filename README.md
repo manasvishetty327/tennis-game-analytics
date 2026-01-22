@@ -1,3 +1,7 @@
+# Tennis Game Analytics
+An interactive sports analytics dashboard built using Python, SQLite, Streamlit, Pandas, and Plotly.
+
+
 ## Main Folder Structure
 ```sportsGameAnalysis/
 ├── src/
