@@ -47,6 +47,21 @@ https://api.sportradar.com/tennis/trial/v3/en/competitions.json
 ```
 
 ## Complexes & Venues Module 
+This module handles tennis infrastructure data including complexes and venues.
+
+- API Endpoint
+https://api.sportradar.com/tennis/trial/v3/en/complexes.json
+
+## Steps to Run
+Add API key to .env
+
+## Run:
+
+python src/scripts/create_complex_tables.py
+python src/scripts/fetch_complexes.py
+python src/scripts/insert_complexes_venues.py
+
+
 
 ## Competitor Rankings & Analytics Module 
 This module extracts ranking data from the SportRadar Tennis API and analysis it with SQL queries.
@@ -60,6 +75,20 @@ https://api.sportradar.com/tennis/trial/v3/en/double_competitors_rankings.json
    python fetch_competitions.py
    python parse_competitions.py
    python insert_data.py
+
+## Output
+SQLite database: competition.db
+Tables: complexes, venues
+
+### Folder Structure
+```complexes_venues_module/
+src/
+├── scripts/
+│   ├── create_complex_tables.py
+│   ├── fetch_complexes.py
+│   ├── insert_complexes_venues.py
+│   └── complexes.json
+```
 
 ### Output
 - SQLite database: rankings.db
