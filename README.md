@@ -60,7 +60,16 @@ pip install -r requirements.txt
 
 ### 4. Configure the API
 
-Copy `.env.example` to `.env` and add your Sportradar API key using the variable name expected by the data-collection scripts. Keep `.env` private and do not commit API credentials.
+Copy `.env.example` to `.env` and configure the following values:
+
+```env
+SPORTRADAR_API_KEY=your_api_key
+COMPETITIONS_URL=your_competitions_endpoint
+COMPLEXES_URL=your_complexes_endpoint
+RANKINGS_URL=your_rankings_endpoint
+```
+
+The collection scripts read these exact variable names. Keep `.env` private and do not commit API credentials.
 
 Sportradar API access is subject to the account's plan, endpoint availability, and request limits.
 
