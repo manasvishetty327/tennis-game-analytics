@@ -1,160 +1,91 @@
 # Tennis Game Analytics
-An interactive sports analytics dashboard built using Python, SQLite, Streamlit, Pandas, and Plotly.
 
-
-## Main Folder Structure
-```sportsGameAnalysis/
-├── src/
-│   ├── app/      streamlit application
-│   ├── queries/  sql queries
-│   ├── scripts/  python scripts/codes
-├── .env.example
-├── .gitignore
-├── README.md
-└── requirements.txt
-```
-
-## Competition Module 
-
-This module extracts competition data from the SportRadar Tennis API.
-
-### API Endpoint
-https://api.sportradar.com/tennis/trial/v3/en/competitions.json
-
-### Steps to Run
-1. Add API key to `.env`
-2. Run:
-   ```
-   python insert_data.py
-   ```
-
-### Output
-- SQLite database: competition.db
-- Tables: categories, competitions
-
-### Folder Structure
-```competition_module/
-├── src/
-│   ├── app/              streamlit application
-│   ├── queries/
-│   │  └── db_schema.sql  sql queries
-│   ├── scripts/
-│   │  ├── fetch_competitions.py
-│   │  ├── parse_competitions.py
-│   │  └── insert_data.py  
-├── .env.example
-├── .gitignore
-├── README.md
-└── requirements.txt
-```
-
-## Complexes & Venues Module 
-This module handles tennis infrastructure data including complexes and venues.
-
-- API Endpoint
-https://api.sportradar.com/tennis/trial/v3/en/complexes.json
-
-## Steps to Run
-Add API key to .env
-
-## Run:
-```
-python src/scripts/create_complex_tables.py
-python src/scripts/fetch_complexes.py
-python src/scripts/insert_complexes_venues.py
-```
-
-
-## Competitor Rankings & Analytics Module 
-This module extracts ranking data from the SportRadar Tennis API and analysis it with SQL queries.
-
-### API Endpoint
-https://api.sportradar.com/tennis/trial/v3/en/double_competitors_rankings.json
-
-### Steps to Run
-1. Add API key to `.env`
-2. Run:
-   ```
-   python fetch_competitions.py
-   python parse_competitions.py
-   python insert_data.py
-   
-## Output
-1. SQLite database: competition.db
-2. Tables: complexes, venues
-
-### Folder Structure
-```complexes_venues_module/
-src/
-├── scripts/
-│   ├── create_complex_tables.py
-│   ├── fetch_complexes.py
-│   ├── insert_complexes_venues.py
-│   └── complexes.json
-```
-
-### Output
-- SQLite database: rankings.db
-- Tables: competitors, competitors_rankings
-
-### Folder Structure
-```competition_module/
-├── src/
-│   ├── app/              streamlit application
-│   ├── queries/
-│   │  └── db_schema.sql  sql queries
-│   ├── scripts/
-│   │  ├── fetch_rankings.py
-│   │  ├── parse_rankings.py
-│   │  └── insert_rankings.py  
-├── .env.example
-├── .gitignore
-├── README.md
-└── requirements.txt
-```
-
-
-## Streamlit Application & Dashboard Module 
-
-This module integrates all datasets from the SQLite database and displays them through an interactive Streamlit dashboard.
+An interactive sports analytics project built with Python, SQLite, Streamlit, Pandas, and Plotly. It collects tennis competition, venue, and competitor-ranking data from the Sportradar Tennis API and presents selected metrics through a dashboard.
 
 ## Features
 
-- KPI Dashboard (total competitors, countries, highest points)
-- Competitor search and filters (rank, country, points)
-- Leaderboards (top ranked, highest points)
-- Country-wise analysis with charts and geo map
-- Infrastructure analysis (complexes & venues)
-- Interactive visualizations using Plotly
-- Modern dark-themed UI with cards and sidebar navigation
+- Competition and category data collection
+- Tennis complex and venue data collection
+- Competitor ranking data collection
+- SQLite storage for collected datasets
+- Dashboard KPIs and competitor search
+- Filters for rank, country, and points
+- Leaderboards and country-level visualizations
+- Interactive charts and geographic views using Plotly
 
-## Technologies Used
+## Technology Stack
 
-1. Streamlit
-2. Pandas
-3. Plotly
-4. SQLite
-5. Python
+- Python
+- Streamlit
+- SQLite
+- Pandas
+- Plotly
+- Requests
+- Sportradar Tennis API
 
-### Folder Structure
-```streamlit_module
-├── src/
-│   ├── app/
-│   │   ├── app.py              streamlit main file
-│   │   └── assets/
-│   │       └── bg.jpg          background image
-│   ├── scripts/
-│   │   └── competition.db
-├── .env.example
-├── .gitignore
-├── README.md
-└── requirements.txt
+## Project Structure
+
+The repository is organised into application, query, and script modules under `src/`. It also includes a `.env.example` file for configuration and a `requirements.txt` file for Python dependencies.
+
+## Setup
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/manasvishetty327/tennis-game-analytics.git
+cd tennis-game-analytics
 ```
 
-## How to Run
+### 2. Create and activate a virtual environment
+
+**Windows**
+
+```bash
+python -m venv venv
+venv\Scripts\activate
 ```
+
+**macOS / Linux**
+
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+
+### 3. Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Configure the API
+
+Copy `.env.example` to `.env` and add your Sportradar API key using the variable name expected by the data-collection scripts. Keep `.env` private and do not commit API credentials.
+
+Sportradar API access is subject to the account's plan, endpoint availability, and request limits.
+
+## Data Collection
+
+The repository contains separate scripts for collecting competition, complex/venue, and competitor-ranking data. Run the relevant scripts from the repository root, following their dependency order and the file paths present under `src/scripts/`.
+
+The scripts create or populate SQLite databases used by the dashboard. Check the script configuration and database paths before running a collection task.
+
+## Run the Dashboard
+
+From the repository root:
+
+```bash
 streamlit run src/app/app.py
 ```
 
-## Output
-An interactive web dashboard for analyzing professional tennis data.
+Streamlit displays the local dashboard URL in the terminal (usually http://localhost:8501).
+
+## Notes
+
+- The dashboard depends on the SQLite data being available at the paths expected by the application.
+- API data collection requires a valid Sportradar API key and may be limited by the API plan.
+- This is an analytics and visualization project; ranking and competition data should be interpreted in the context of the source API and its update schedule.
+
+## Author
+
+**Manasvi Shetty**
